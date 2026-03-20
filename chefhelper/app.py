@@ -86,9 +86,17 @@ if 'haccp_logs' not in st.session_state:
 
 # OpenAI setup
 def get_openai_client():
-    api_key = os.environ.get('OPENAI_API_KEY')
+    # Try Streamlit Cloud secrets first, then environment variable
+    try:
+        api_key = st.secrets.get('OPENAI_API_KEY', None)
+    except:
+        api_key = None
+    
     if not api_key:
-        st.error("⚠️ OpenAI API key not configured. Set OPENAI_API_KEY environment variable.")
+        api_key = os.environ.get('OPENAI_API_KEY')
+    
+    if not api_key:
+        st.error("⚠️ OpenAI API key not configured. Add it in Streamlit Cloud secrets.")
         st.info("Get your API key at: https://platform.openai.com/api-keys")
         return None
     return openai.OpenAI(api_key=api_key)
