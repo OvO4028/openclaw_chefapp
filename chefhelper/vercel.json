@@ -1,0 +1,7 @@
+{
+  "buildCommand": "pip install -r requirements.txt",
+  "devCommand": "streamlit run app/app.py --server.port $PORT",
+  "installCommand": "pip install -r requirements.txt",
+  "framework": "streamlit",
+  "outputDirectory": "."
+}
