@@ -1,12 +1,6 @@
 {
   "buildCommand": "pip install -r requirements.txt",
   "installCommand": "pip install -r requirements.txt",
-  "outputDirectory": "app",
-  "framework": null,
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "app.py"
-    }
-  ]
+  "outputDirectory": ".",
+  "framework": "streamlit"
 }
