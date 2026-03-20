@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChefHelper - AI Kitchen Manager</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); }
+        .card { background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
+        .accent { color: #ff6b35; }
+        .btn-primary { background: #ff6b35; transition: all 0.3s; }
+        .btn-primary:hover { background: #e55a2b; transform: translateY(-2px); }
+        .glow { box-shadow: 0 0 30px rgba(255,107,53,0.3); }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen text-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-black/20 backdrop-blur-lg border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <span class="text-3xl">👨‍🍳</span>
+                <span class="text-xl font-bold">ChefHelper</span>
+            </div>
+            <div class="flex gap-6">
+                <a href="#features" class="hover:text-orange-400 transition">Features</a>
+                <a href="#pricing" class="hover:text-orange-400 transition">Pricing</a>
+                <a href="#demo" class="hover:text-orange-400 transition">Demo</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="pt-32 pb-20 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-block px-4 py-2 rounded-full bg-orange-500/20 text-orange-400 text-sm mb-6">
+                ✨ AI-Powered Kitchen Management
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                Cook More.<br>
+                <span class="accent">Type Less.</span>
+            </h1>
+            <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
+                Automate recipes, menus, HACCP logs, and inventory with AI. 
+                Built by cooks, for cooks.
+            </p>
+            <div class="flex gap-4 justify-center">
+                <a href="#demo" class="btn-primary px-8 py-4 rounded-lg font-semibold text-lg glow">
+                    Try Demo Free
+                </a>
+                <a href="#features" class="px-8 py-4 rounded-lg font-semibold text-lg border border-white/20 hover:bg-white/10 transition">
+                    Learn More
+                </a>
+            </div>
+            <p class="mt-4 text-sm text-gray-500">No credit card required</p>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-16">Everything You Need</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="card rounded-2xl p-6">
+                    <div class="text-4xl mb-4">🍳</div>
+                    <h3 class="text-xl font-semibold mb-2">AI Recipe Generator</h3>
+                    <p class="text-gray-400">Describe what you want — AI creates full recipes with ingredients, steps, and tips.</p>
+                </div>
+                <div class="card rounded-2xl p-6">
+                    <div class="text-4xl mb-4">📋</div>
+                    <h3 class="text-xl font-semibold mb-2">Menu Builder</h3>
+                    <p class="text-gray-400">Create beautiful menus with pricing. Export to PDF with one click.</p>
+                </div>
+                <div class="card rounded-2xl p-6">
+                    <div class="text-4xl mb-4">📊</div>
+                    <h3 class="text-xl font-semibold mb-2">Inventory Tracker</h3>
+                    <p class="text-gray-400">Track stock levels, get low-stock alerts, manage suppliers.</p>
+                </div>
+                <div class="card rounded-2xl p-6">
+                    <div class="text-4xl mb-4">🛡️</div>
+                    <h3 class="text-xl font-semibold mb-2">HACCP Logs</h3>
+                    <p class="text-gray-400">EU-compliant food safety documentation. Temperature logs, inspections, alerts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="py-20 px-6 bg-black/30">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-4">Try It Now</h2>
+            <p class="text-center text-gray-400 mb-10">Generate your first AI recipe in seconds</p>
+            
+            <div class="card rounded-2xl p-8">
+                <form id="recipeForm" class="space-y-6">
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div>
+                            <label class="block text-sm text-gray-400 mb-2">Cuisine</label>
+                            <select id="cuisine" class="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-3 focus:outline-none focus:border-orange-500">
+                                <option>Italian</option>
+                                <option>French</option>
+                                <option>Japanese</option>
+                                <option>Mexican</option>
+                                <option>Indian</option>
+                                <option>Thai</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm text-gray-400 mb-2">Season</label>
+                            <select id="season" class="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-3 focus:outline-none focus:border-orange-500">
+                                <option>Spring</option>
+                                <option>Summer</option>
+                                <option>Autumn</option>
+                                <option>Winter</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm text-gray-400 mb-2">Difficulty</label>
+                            <select id="difficulty" class="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-3 focus:outline-none focus:border-orange-500">
+                                <option>Easy</option>
+                                <option>Medium</option>
+                                <option>Hard</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-400 mb-2">Ingredients you have</label>
+                        <textarea id="ingredients" rows="2" class="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-3 focus:outline-none focus:border-orange-500" placeholder="chicken, garlic, olive oil, tomatoes..."></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-400 mb-2">Dietary restrictions (optional)</label>
+                        <div class="flex flex-wrap gap-3">
+                            <label class="flex items-center gap-2"><input type="checkbox" class="checkbox-orange"> Vegetarian</label>
+                            <label class="flex items-center gap-2"><input type="checkbox" class="checkbox-orange"> Vegan</label>
+                            <label class="flex items-center gap-2"><input type="checkbox" class="checkbox-orange"> Gluten-Free</label>
+                            <label class="flex items-center gap-2"><input type="checkbox" class="checkbox-orange"> Dairy-Free</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-primary w-full py-4 rounded-lg font-semibold text-lg">
+                        ✨ Generate Recipe
+                    </button>
+                </form>
+                
+                <div id="loading" class="hidden text-center py-8">
+                    <div class="inline-block animate-spin rounded-full h-12 w-12 border-4 border-orange-500 border-t-transparent"></div>
+                    <p class="mt-4 text-gray-400">AI is cooking up your recipe...</p>
+                </div>
+                
+                <div id="result" class="hidden mt-8 p-6 bg-green-900/30 rounded-xl border border-green-500/30">
+                    <h3 id="recipeName" class="text-2xl font-bold mb-2"></h3>
+                    <p id="recipeDesc" class="text-gray-300 mb-4"></p>
+                    <div class="grid grid-cols-4 gap-4 mb-4">
+                        <div class="text-center p-3 bg-white/5 rounded-lg">
+                            <div class="text-xs text-gray-400">Prep</div>
+                            <div id="prepTime" class="font-semibold"></div>
+                        </div>
+                        <div class="text-center p-3 bg-white/5 rounded-lg">
+                            <div class="text-xs text-gray-400">Cook</div>
+                            <div id="cookTime" class="font-semibold"></div>
+                        </div>
+                        <div class="text-center p-3 bg-white/5 rounded-lg">
+                            <div class="text-xs text-gray-400">Servings</div>
+                            <div id="servings" class="font-semibold"></div>
+                        </div>
+                        <div class="text-center p-3 bg-white/5 rounded-lg">
+                            <div class="text-xs text-gray-400">Calories</div>
+                            <div id="calories" class="font-semibold"></div>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <h4 class="font-semibold mb-2">Ingredients:</h4>
+                        <ul id="recipeIngredients" class="text-gray-300 text-sm"></ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold mb-2">Instructions:</h4>
+                        <ol id="recipeInstructions" class="text-gray-300 text-sm space-y-1"></ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="py-20 px-6">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-16">Simple Pricing</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card rounded-2xl p-8 text-center">
+                    <h3 class="text-xl font-semibold mb-2">Free</h3>
+                    <div class="text-4xl font-bold mb-4">€0<span class="text-lg text-gray-400">/mo</span></div>
+                    <ul class="text-gray-400 space-y-3 mb-8">
+                        <li>✓ 5 Recipes</li>
+                        <li>✓ 1 Menu</li>
+                        <li>✓ Basic HACCP Template</li>
+                    </ul>
+                    <button class="w-full py-3 rounded-lg border border-white/20 hover:bg-white/10 transition">Get Started</button>
+                </div>
+                <div class="card rounded-2xl p-8 text-center glow border-orange-500/50">
+                    <div class="inline-block px-3 py-1 bg-orange-500 text-sm rounded-full mb-4">Most Popular</div>
+                    <h3 class="text-xl font-semibold mb-2">Pro</h3>
+                    <div class="text-4xl font-bold mb-4">€29<span class="text-lg text-gray-400">/mo</span></div>
+                    <ul class="text-gray-400 space-y-3 mb-8">
+                        <li>✓ Unlimited Recipes</li>
+                        <li>✓ Unlimited Menus</li>
+                        <li>✓ Full HACCP Suite</li>
+                        <li>✓ Inventory Management</li>
+                        <li>✓ PDF Export</li>
+                    </ul>
+                    <button class="btn-primary w-full py-3 rounded-lg font-semibold">Start Free Trial</button>
+                </div>
+                <div class="card rounded-2xl p-8 text-center">
+                    <h3 class="text-xl font-semibold mb-2">Team</h3>
+                    <div class="text-4xl font-bold mb-4">€79<span class="text-lg text-gray-400">/mo</span></div>
+                    <ul class="text-gray-400 space-y-3 mb-8">
+                        <li>✓ Everything in Pro</li>
+                        <li>✓ 5 Team Members</li>
+                        <li>✓ 5 Locations</li>
+                        <li>✓ Priority Support</li>
+                    </ul>
+                    <button class="w-full py-3 rounded-lg border border-white/20 hover:bg-white/10 transition">Contact Sales</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 px-6">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-6">Ready to Automate Your Kitchen?</h2>
+            <p class="text-xl text-gray-300 mb-8">Join hundreds of cooks saving hours every week.</p>
+            <a href="#demo" class="btn-primary px-10 py-4 rounded-lg font-semibold text-lg inline-block">
+                Start Free Today
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 border-t border-white/10 text-center text-gray-500">
+        <p>© 2026 ChefHelper. Built with ❤️ for cooks everywhere.</p>
+    </footer>
+
+    <script>
+        // Demo functionality
+        const DEMO_RECIPES = {
+            italian: {
+                name: "Tuscan Herb Chicken",
+                description: "A rustic Italian dish with tender chicken, sun-dried tomatoes, and fresh herbs.",
+                prep: "15 min",
+                cook: "25 min",
+                servings: 4,
+                calories: 320,
+                ingredients: ["4 chicken breasts", "200g sun-dried tomatoes", "Fresh rosemary", "Fresh thyme", "4 cloves garlic", "200ml chicken broth", "50g parmesan", "Olive oil", "Salt & pepper"],
+                instructions: ["Season chicken with salt, pepper, and herbs", "Sear chicken in olive oil until golden", "Add garlic and cook 1 minute", "Add sun-dried tomatoes and broth", "Simmer 20 minutes until chicken is cooked", "Finish with parmesan and serve"]
+            }
+        };
+
+        document.getElementById('recipeForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const cuisine = document.getElementById('cuisine').value.toLowerCase();
+            const ingredients = document.getElementById('ingredients').value;
+            
+            document.getElementById('loading').classList.remove('hidden');
+            document.getElementById('result').classList.add('hidden');
+            
+            // Simulate API call
+            setTimeout(() => {
+                document.getElementById('loading').classList.add('hidden');
+                
+                const recipe = DEMO_RECIPES[cuisine] || DEMO_RECIPES.italian;
+                
+                document.getElementById('recipeName').textContent = recipe.name;
+                document.getElementById('recipeDesc').textContent = recipe.description;
+                document.getElementById('prepTime').textContent = recipe.prep;
+                document.getElementById('cookTime').textContent = recipe.cook;
+                document.getElementById('servings').textContent = recipe.servings;
+                document.getElementById('calories').textContent = recipe.calories;
+                
+                document.getElementById('recipeIngredients').innerHTML = recipe.ingredients.map(i => `<li>• ${i}</li>`).join('');
+                document.getElementById('recipeInstructions').innerHTML = recipe.instructions.map((i, idx) => `<li>${idx+1}. ${i}</li>`).join('');
+                
+                document.getElementById('result').classList.remove('hidden');
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
