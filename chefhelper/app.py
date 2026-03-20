@@ -13,7 +13,7 @@ from io import BytesIO
 # Page config
 st.set_page_config(
     page_title="ChefHelper - AI Kitchen Manager",
-    page_icon="👨‍🍳",
+    page_icon="🍳",
     layout="wide"
 )
 
