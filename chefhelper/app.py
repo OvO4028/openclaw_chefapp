@@ -86,12 +86,16 @@ if 'haccp_logs' not in st.session_state:
 
 # OpenAI setup
 def get_openai_client():
-    # Try Streamlit Cloud secrets first, then environment variable
-    try:
-        api_key = st.secrets.get('OPENAI_API_KEY', None)
-    except:
-        api_key = None
+    api_key = None
     
+    # Try Streamlit Cloud secrets
+    if hasattr(st, 'secrets'):
+        try:
+            api_key = st.secrets.get('OPENAI_API_KEY')
+        except:
+            pass
+    
+    # Fallback to environment variable
     if not api_key:
         api_key = os.environ.get('OPENAI_API_KEY')
     
